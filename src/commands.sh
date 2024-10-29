@@ -95,3 +95,14 @@ read -p "Which file do you want to edit? " e_file
     echo "[!] Error: File '$e_file' does not exist."
   fi
 
+# v
+read -p "Which file do you want to view? " v_file
+# Checks if file exists: The sequel: The sequel: The sequel: The sequel: The sequel
+  if [[ -f "$v_file" ]]; then
+    clear
+    cat "$v_file"
+    echo ""
+    read -p "Press any key to continue..."
+  else
+    echo "[!] Error: File '$v_file' does not exist."
+  fi

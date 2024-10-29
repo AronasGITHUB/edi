@@ -1,115 +1,118 @@
 #!/bin/bash
 
-#  commands.sh
-# This is a file of commands in edi.
-# Check our license to see what can you do with this script.
+# commands.sh
+# This script contains command definitions for EDI - ED Improved.
+# Please refer to our license for details on usage and contributions.
 
-# THIS FILE IS NOT MEANT TO BE EXECUTED, THESE ARE SCRIPTS YOU CAN TAKE.
+# NOTE: This file is NOT meant to be executed directly. 
+# It serves as a collection of command scripts for use within EDI.
 
-# In case statements, and ";;" at the end.
+# Each command block is structured to fit within a case statement.
+# Remember to use ";;" at the end of each command block.
 
-# Like, this example:
-# Commands here
+# Example command structure:
+# Command name
+# # Functionality description
+# <command logic>
 # ;;
 
-
-# h
-# Please provide a seperate function named 'hlp'
+# h - Help command
+# Invokes the help function 'hlp'.
 hlp
 
-# q
+# q - Quit command
+# Clears the screen and exits the editor.
 clear
 exit 0
 
-# sq
+# sq - Save and quit command
+# Prompts the user for a filename to save and exits.
 read -p "Which file do you want to save? " wq_save
-# Checks if the file exists
-  if [[ -n "$wq_save" ]]; then
-      if echo "" >> "$wq_save"; then
+if [[ -n "$wq_save" ]]; then
+    if echo "" >> "$wq_save"; then
         echo "File saved as $wq_save."
-      else
+    else
         echo "[!] Error: Unable to save to '$wq_save'."
     fi
-  else
+else
     echo "[!] Error: No file specified."
-  fi
+fi
 clear
 exit 0
 
-# s
+# s - Save command
+# Prompts the user for a filename to save.
 read -p "Which file do you want to save? " s_save
-# Checks if file exists: The sequel
-  if [[ -n "$s_save" ]]; then
+if [[ -n "$s_save" ]]; then
     if echo "" >> "$s_save"; then
-      echo "File saved as $wq_save."
+        echo "File saved as $s_save."
     else
-      echo "[!] Error: Unable to save to '$s_save'."
-  fi
-  else
+        echo "[!] Error: Unable to save to '$s_save'."
+    fi
+else
     echo "[!] Error: No file specified."
-  fi
+fi
 
-# a
+# a - Append command
+# Prompts the user for a file to append content to.
 read -p "Which file do you want to append to? " a_append
-# Checks if file exists: The sequel: The sequel
-  if [[ -f "$a_append" ]]; then
+if [[ -f "$a_append" ]]; then
     read -p "Which contents do you want to append? " a_content
-      if echo "$a_content" >> "$a_append"; then
+    if echo "$a_content" >> "$a_append"; then
         echo "Content appended to '$a_append'."
-      else
+    else
         echo "[!] Error: Unable to append to '$a_append'."
     fi
-  else
+else
     echo "[!] Error: File '$a_append' does not exist."
-  fi
+fi
 
-
-# la
+# la - Line append command
+# Prompts for a line number and appends content after it.
 read -p "In which line do you want to append? " la_line
 read -p "Which file do you want to append to? " la_file
-# Checks if file exists: The sequel: The sequel: The sequel
-  if [[ -f "$la_file" ]]; then
+if [[ -f "$la_file" ]]; then
     read -p "Which contents do you want to append? " la_content
-      if sed -i "${la_line}a ${la_content}" "$la_file"; then
+    if sed -i "${la_line}a ${la_content}" "$la_file"; then
         echo "Content appended to line $la_line in '$la_file'."
-      else
+    else
         echo "[!] Error: Unable to append content to '$la_file'."
-      fi
-  else
+    fi
+else
     echo "[!] Error: File '$la_file' does not exist."
-  fi
+fi
 
-# e
+# e - Edit command
+# Prompts for a line number and allows editing of that line.
 read -p "In which line do you want to edit? " e_line
 read -p "Which file do you want to edit? " e_file
-# Checks if file exists: The sequel: The sequel: The sequel: The sequel
-# Guys this is the best sequel you got to watch it
-  if [[ -f "$e_file" ]]; then
+if [[ -f "$e_file" ]]; then
     read -p "Enter the full contents of the line: " e_content
-      if sed -i "${e_line}s/.*/${e_content}/" "$e_file"; then
+    if sed -i "${e_line}s/.*/${e_content}/" "$e_file"; then
         echo "Line $e_line in '$e_file' edited."
-      else
+    else
         echo "[!] Error: Unable to edit line $e_line in '$e_file'."
-      fi
-  else
+    fi
+else
     echo "[!] Error: File '$e_file' does not exist."
-  fi
+fi
 
-# v
+# v - View command
+# Prompts for a file to display its contents.
 read -p "Which file do you want to view? " v_file
-# Checks if file exists: The sequel: The sequel: The sequel: The sequel: The sequel
-  if [[ -f "$v_file" ]]; then
+if [[ -f "$v_file" ]]; then
     clear
     cat "$v_file"
     echo ""
     read -p "Press any key to continue..."
-  else
+else
     echo "[!] Error: File '$v_file' does not exist."
-  fi
+fi
 
-# nl
-read -p "Which file do you want to create a new line on?" nl_file
-echo "" >> $nl_file
+# nl - New line command
+# Creates a new line in the specified file.
+read -p "Which file do you want to create a new line on? " nl_file
+echo "" >> "$nl_file"
 
-# *
+# * - Invalid command
 echo "[!] Error: Invalid command."

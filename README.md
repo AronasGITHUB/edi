@@ -16,3 +16,8 @@ If you want to learn how edi works, want to see scripts of edi, go to the src/ d
 2. Open a terminal, and type the following: `chmod +x install.sh && ./install.sh`. This makes the file executable, and executes the autoinstaller.
 3. Done! Type `edi` in the terminal and do your editing.
 
+## Contributing
+You are free to contribute, check the `CONTRIBUTING.md` file for guidelines.
+
+## License
+This project is licensed under the GNU General Public License.

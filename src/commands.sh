@@ -106,3 +106,9 @@ read -p "Which file do you want to view? " v_file
   else
     echo "[!] Error: File '$v_file' does not exist."
   fi
+
+# nl
+read -p "Which file do you want to create a new line on?" nl_file
+echo "" >> $nl_file
+
+# *

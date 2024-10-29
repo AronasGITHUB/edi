@@ -63,3 +63,21 @@ read -p "Which file do you want to append to? " a_append
     echo "[!] Error: File '$a_append' does not exist."
   fi
 
+
+# la
+read -p "In which line do you want to append? " la_line
+read -p "Which file do you want to append to? " la_file
+# Checks if file exists: The sequel: The sequel: The sequel
+  if [[ -f "$la_file" ]]; then
+    read -p "Which contents do you want to append? " la_content
+      if sed -i "${la_line}a ${la_content}" "$la_file"; then
+        echo "Content appended to line $la_line in '$la_file'."
+      else
+        echo "[!] Error: Unable to append content to '$la_file'."
+      fi
+  else
+    echo "[!] Error: File '$la_file' does not exist."
+  fi
+
+
+

@@ -112,3 +112,4 @@ read -p "Which file do you want to create a new line on?" nl_file
 echo "" >> $nl_file
 
 # *
+echo "[!] Error: Invalid command."

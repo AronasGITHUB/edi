@@ -6,6 +6,11 @@
 
 # In case statements, and ";;" at the end.
 
+# Like, this example:
+# Commands here
+# ;;
+
+
 # h
 # Please provide a seperate function named 'hlp'
 hlp

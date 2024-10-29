@@ -20,3 +20,18 @@ hlp
 # q
 clear
 exit 0
+
+# sq
+read -p "Which file do you want to save? " wq_save
+# Checks if the file exists
+  if [[ -n "$wq_save" ]]; then
+      if echo "" >> "$wq_save"; then
+        echo "File saved as $wq_save."
+      else
+        echo "[!] Error: Unable to save to '$wq_save'."
+    fi
+  else
+    echo "[!] Error: No file specified."
+  fi
+clear
+exit 0

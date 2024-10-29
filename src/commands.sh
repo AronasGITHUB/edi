@@ -35,3 +35,16 @@ read -p "Which file do you want to save? " wq_save
   fi
 clear
 exit 0
+
+# s
+read -p "Which file do you want to save? " s_save
+# Checks if file exists: The sequel
+  if [[ -n "$s_save" ]]; then
+    if echo "" >> "$s_save"; then
+      echo "File saved as $wq_save."
+    else
+      echo "[!] Error: Unable to save to '$s_save'."
+  fi
+  else
+    echo "[!] Error: No file specified."
+  fi

@@ -48,3 +48,18 @@ read -p "Which file do you want to save? " s_save
   else
     echo "[!] Error: No file specified."
   fi
+
+# a
+read -p "Which file do you want to append to? " a_append
+# Checks if file exists: The sequel: The sequel
+  if [[ -f "$a_append" ]]; then
+    read -p "Which contents do you want to append? " a_content
+      if echo "$a_content" >> "$a_append"; then
+        echo "Content appended to '$a_append'."
+      else
+        echo "[!] Error: Unable to append to '$a_append'."
+    fi
+  else
+    echo "[!] Error: File '$a_append' does not exist."
+  fi
+

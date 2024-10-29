@@ -79,5 +79,19 @@ read -p "Which file do you want to append to? " la_file
     echo "[!] Error: File '$la_file' does not exist."
   fi
 
-
+# e
+read -p "In which line do you want to edit? " e_line
+read -p "Which file do you want to edit? " e_file
+# Checks if file exists: The sequel: The sequel: The sequel: The sequel
+# Guys this is the best sequel you got to watch it
+  if [[ -f "$e_file" ]]; then
+    read -p "Enter the full contents of the line: " e_content
+      if sed -i "${e_line}s/.*/${e_content}/" "$e_file"; then
+        echo "Line $e_line in '$e_file' edited."
+      else
+        echo "[!] Error: Unable to edit line $e_line in '$e_file'."
+      fi
+  else
+    echo "[!] Error: File '$e_file' does not exist."
+  fi
 

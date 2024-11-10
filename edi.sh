@@ -108,11 +108,12 @@ function menu() {
                 fi
                 ;;
             nl)
-                read -p "Which file do you want to create a new line on?" nl_file
+                read -p "Which file do you want to create a new line on? " nl_file
                 echo "" >> $nl_file
                 ;;
             d)
                 read -p "Which line do you want to delete? " d_line
+                read -p "Which file do you want to delete that line on? "
     			# Check if the line number is valid
     			if sed -i "${d_line}d" "$file"; then
       			  echo "Line $d_line deleted."

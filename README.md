@@ -1,7 +1,7 @@
 ## edi
 ![edi logo](https://github.com/AronasGITHUB/edi/blob/main/screenshots/edi.png) 
 
-edi is a text editor made completely in Bash, and designed to improve upon the original `ed` text editor, 54 years later. edi stands for ED Improved.  
+edi is a text editor made completely in Bash, and designed to improve upon the original `ed` text editor, 54 years later. edi stands for ED Improved. We are currently at Edi 1.1! 
 
 ## Features
 - **Fast and Lightweight**: Edi is made entirely from bash, so its lightweight and easy

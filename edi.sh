@@ -115,7 +115,7 @@ function menu() {
                 read -p "Which line do you want to delete? " d_line
                 read -p "Which file do you want to delete that line on? " d_file
     			# Check if the line number is valid
-    			if sed -i "${d_line}d" "$file"; then
+    			if sed -i "${d_line}d" "$d_file"; then
       			  echo "Line $d_line deleted."
    				 else
        				 echo "[!] Error: Unable to delete line $d_line."
